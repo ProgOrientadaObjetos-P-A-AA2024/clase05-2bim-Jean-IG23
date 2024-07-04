@@ -19,8 +19,6 @@ public class OperacionesEstudiantes {
     // Una Persona, tiene un atributo ciudad de tipo Ciudad
     // Una Ciudad, tiene un atributo nombre de tipo String
     
-    
-    
     public void establecerEstudiante(ArrayList<Persona> lista){
         estudiantes = lista;
     }
@@ -38,9 +36,54 @@ public class OperacionesEstudiantes {
     }
     
     public double obtenerPromedioEdades(){
-        
         return promedioEdades;
     }
     
+    public void establecerEdadMinima() {
+        edadminima = 100;
+        for (int i = 0; i < estudiantes.size(); i++) {
+            if(estudiantes.get(i).obtenerEdad() < edadminima) {
+                edadminima = estudiantes.get(i).obtenerEdad();
+            }
+        }
+    }
     
+    public int obtenerEdadMinima() {
+        return edadminima;
+    }
+        
+    public void establecerEdadMaxima() {
+        edadmaxima = -5;
+        for (int i = 0; i < estudiantes.size(); i++) {
+            if(estudiantes.get(i).obtenerEdad() > edadmaxima) {
+                edadmaxima = estudiantes.get(i).obtenerEdad();
+            }
+        }
+    }
+    
+    public int obtenerEdadMaxima() {
+        return edadmaxima;
+    }
+     
+    public void establecerListaCiudadesEstudiantes() {
+        String cadena = "";
+        for (int i = 0; i < estudiantes.size(); i++) {
+            cadena = String.format("%s%s", cadena,
+                    estudiantes.get(i).obtenerCiudad().obtenerNombre());
+        }
+        listaCiudadesEstudiantes = cadena;
+    }
+    
+    public String obtenerListaCiudadesEstudiantes() {
+        return listaCiudadesEstudiantes;
+    }
+    
+    public String toString() {
+        String cadena;
+        return cadena = String.format("Promedio de edad: %.2f\n"
+                + "Edad minima: %d\n"
+                + "Edad maxima: %d\n"
+                + "Lista de Ciudades: \n%s\n", obtenerPromedioEdades(),
+                obtenerEdadMinima(), obtenerEdadMaxima(), obtenerListaCiudadesEstudiantes());
+    }
 }
