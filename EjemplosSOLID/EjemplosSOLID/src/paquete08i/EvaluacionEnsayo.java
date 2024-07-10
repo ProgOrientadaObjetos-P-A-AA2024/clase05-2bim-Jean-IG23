@@ -10,6 +10,7 @@ package paquete08i;
  * @author reroes
  */
 public class EvaluacionEnsayo implements EvaluacionTipoDos {
+    //implements es para trabajar con interfaces
 
     private int numeroProblemas;
     private double totalProblemas;
@@ -32,18 +33,15 @@ public class EvaluacionEnsayo implements EvaluacionTipoDos {
         return totalProblemas;
     }
     
-    
+    // se trabaja con establecer promedio y obtener Promedio porque 
     @Override
     public void establecerPromedioEnsayo() {
-
         promedioEnsayo = obtenerTotalProblemas() / obtenerNumeroProblemas();
-
     }
 
     @Override
     public double obtenerPromedioEnsayo() {
         return promedioEnsayo;
-
     }
     
 }
